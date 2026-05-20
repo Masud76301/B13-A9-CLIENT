@@ -22,7 +22,7 @@ const Navbar = () => {
                 {/* All link  */}
                 <div className='flex items-center font-semibold gap-6 '>
                     <Link href='/'>Home</Link>
-                    <Link href='/'>All Facilities</Link>
+                    <Link href='/all-facilities'>All Facilities</Link>
                     <Link href='/'>My Booking</Link>
                     <Link href='/add-facility'>Add Facility</Link>
                     <Link href='/'>Manage Facility</Link>

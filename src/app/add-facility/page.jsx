@@ -5,19 +5,31 @@ import { FaPersonSwimming } from 'react-icons/fa6';
 import { GiTennisRacket } from 'react-icons/gi';
 import { MdSportsTennis } from 'react-icons/md';
 import { RiFootballFill } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 
 const AddFacilityPage = () => {
-    const onSubmit = (e) =>{
+    const onSubmit = async (e) =>{
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(formData.entries());
         console.log(facility);
+
+        const res = await fetch('http://localhost:8000/facility',{
+               method: 'POST',
+               headers: {
+                'content-type':'application/json'
+               },
+               body: JSON.stringify(facility)
+        });
+
+        const data= await res.json();
+        toast.success("Facility are added successfully!");
     }
     return (
         <div className='container mx-auto'>
             <h1 className='text-4xl text-center font-bold mt-10 text-shadow-2xs'>ADD A NEW <span className='font-bold text-blue-800'>FACILITY</span> </h1>
-            <Card className='my-10 border w-4xl mx-auto'>
-                <form onSubmit={onSubmit} className="p-10 space-y-8 w-3xl mx-auto">
+            <Card className='my-10 border w-3xl mx-auto bg-blue-50'>
+                <form onSubmit={onSubmit} className="p-10 space-y-8 w-2xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Facility Name */}
                         <div className="md:col-span-2">
@@ -97,7 +109,7 @@ const AddFacilityPage = () => {
 
                         {/* Available Time Slot */}
                         <div className="md:col-span-2">
-                            <TextField name="available-time-slot" isRequired>
+                            <TextField name="timeSlot" isRequired>
                                 <Label>Available Time Slot</Label>
                                 <Input placeholder="Morning (9.00am to 11.00am)" className="rounded-2xl" />
                                 <FieldError />
@@ -122,7 +134,7 @@ const AddFacilityPage = () => {
                             <TextField name="description" isRequired>
                                 <Label>Description</Label>
                                 <TextArea
-                                    placeholder="Describe the travel experience..."
+                                    placeholder="Describe the sports facilities..."
                                     className="rounded-3xl"
                                 />
                                 <FieldError />
@@ -134,9 +146,7 @@ const AddFacilityPage = () => {
 
                     <Button
                         type="submit"
-                        variant="outline"
-
-                        className=" rounded-sm w-full bg-blue-700 text-white"
+                        className=" rounded-sm w-full bg-blue-800 text-white"
                     >
                         Add Facility
                     </Button>
