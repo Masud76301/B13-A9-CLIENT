@@ -8,26 +8,26 @@ import { MdSportsTennis } from 'react-icons/md';
 import { RiFootballFill } from 'react-icons/ri';
 
 const EditModal = ({facility}) => {
-    
+    const {_id, facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
     const onSubmit = async (e) =>{
            e.preventDefault()
            const formData = new FormData(e.currentTarget);
            const facility = Object.fromEntries(formData.entries());
            console.log(facility);
    
-        //    const res = await fetch('http://localhost:8000/facility',{
-        //           method: 'POST',
-        //           headers: {
-        //            'content-type':'application/json'
-        //           },
-        //           body: JSON.stringify(facility)
-        //    });
+           const res = await fetch(`http://localhost:8000/facility/${_id}`,{
+                  method: 'PATCH',
+                  headers: {
+                   'content-type':'application/json'
+                  },
+                  body: JSON.stringify(facility)
+           });
    
-        //    const data= await res.json();
-        //    toast.success("Facility are update successfully!");
+           const data= await res.json();
+           toast.success("Facility are update successfully!");
        }
 
-     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
+     
     return (
         <Modal>
             <Button variant='Ghost' className="text-blue-500"><FaRegEdit />Edit</Button>

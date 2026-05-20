@@ -10,7 +10,7 @@ const FacilityCard = ({ facility }) => {
     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl,_id } = facility;
     return (
         <div className="my-10">
-            <Card className="border rounded-md bg-blue-100 relative">
+            <Card className="border rounded-md bg-blue-100 relative h-full flex flex-col">
 
                 <Image
                     src={imageUrl}
@@ -19,12 +19,12 @@ const FacilityCard = ({ facility }) => {
                     height={200}
                     className="w-full rounded-sm"
                 ></Image>
-                <div>
+                <div className="flex flex-col grow ">
                     
 
                         <Chip color="accent" className=" bg-blue-100 rounded-lg absolute top-6 right-6">{facilityType}</Chip>
               
-                    <div>
+                    <div className="space-y-2 flex-1">
                         <h1 className="text-blue-800 text-xl font-bold mb-2">{facilityName}</h1>
                         <h1 className="flex items-center font-semibold gap-2"><MdLocationOn />{location}</h1>
                         <p className="flex items-center gap-2 text-[14px] font-semibold"><ImUsers /> Total Capacity : {capacity}</p>

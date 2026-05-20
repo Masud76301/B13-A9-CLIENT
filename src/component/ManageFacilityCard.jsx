@@ -4,6 +4,7 @@ import React from 'react';
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { CloseButton } from 'react-toastify';
 import EditModal from './EditModal';
+import { DeleteAlert } from './DeleteAlert';
 
 const ManageFacilityCard = ({ facility }) => {
     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
@@ -27,7 +28,7 @@ const ManageFacilityCard = ({ facility }) => {
 
                <div className='flex flex-col'>
                 <EditModal facility={facility}></EditModal>
-                <Button variant="Ghost" className="text-red-500"><FaRegTrashAlt/>Delete</Button>
+                <DeleteAlert facility={facility}></DeleteAlert>
                </div>
               </div>
             </Card>

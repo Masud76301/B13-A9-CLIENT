@@ -113,18 +113,20 @@ const FacilitiesDetailsPage = async ({ params }) => {
                         </div>
                     </div>
 
-                    {/* Buttons */}
-
+                   
                     <Card className='bg-blue-100 rounded-sm'>
                         <div className='flex items-center justify-between'>
                             <h1 className='text-2xl font-bold'>Total Price</h1>
                             <div>
                                 <h1 className='text-2xl font-bold'>{price * 2} BDT</h1>
-                                <p className='text-[12px] flex  items-center gap-2'>200 BDT / Hours</p>
+                                <p className='text-[12px] flex  items-center gap-2'>{price} BDT/ Hours</p>
                             </div>
                         </div>
 
                     </Card>
+
+                     {/* Buttons */}
+
                     <Button
                         type="submit"
                         className=" rounded-sm w-full bg-blue-800 text-white"

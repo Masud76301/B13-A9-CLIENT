@@ -1,5 +1,6 @@
 'use client'
 import { Select, Button, FieldError, Input, Label, ListBox, TextArea, TextField, Card } from '@heroui/react';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import { FaPersonSwimming } from 'react-icons/fa6';
 import { GiTennisRacket } from 'react-icons/gi';
@@ -24,6 +25,7 @@ const AddFacilityPage = () => {
 
         const data= await res.json();
         toast.success("Facility are added successfully!");
+        redirect('/all-facilities')
     }
     return (
         <div className='container mx-auto'>
