@@ -25,7 +25,7 @@ const Navbar = () => {
                     <Link href='/all-facilities'>All Facilities</Link>
                     <Link href='/'>My Booking</Link>
                     <Link href='/add-facility'>Add Facility</Link>
-                    <Link href='/'>Manage Facility</Link>
+                    <Link href='/manage-facility'>Manage Facility</Link>
                 </div>
 
 
