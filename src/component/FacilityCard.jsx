@@ -35,7 +35,7 @@ const FacilityCard = ({ facility }) => {
 
                     <div className="mt-6 flex items-center gap-4">
                         <h1 className="text-2xl font-bold flex items-center gap-1"><FaBangladeshiTakaSign />{price}</h1>
-                       <Link href={`/all-facilities/${_id}`}> <Button className="rounded-sm w-full bg-blue-800">Book Now</Button> </Link>
+                       <Link href={`/all-facilities/${_id}`} className="block w-full"> <Button className="rounded-sm w-full bg-blue-800">Book Now</Button> </Link>
                     </div>
 
                 </div>
