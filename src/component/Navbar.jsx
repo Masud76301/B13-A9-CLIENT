@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { Avatar, AvatarFallback, AvatarImage, Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ProfileDropdown } from './ProfileDropdown';
 
 const Navbar = () => {
 
@@ -14,8 +15,8 @@ const Navbar = () => {
     }
     return (
 
-        <div className='bg-white shadow h-16 p-3 '>
-            <div className='container mx-auto flex justify-between'>
+        <div className='bg-white shadow h-16 p-2 '>
+            <div className='container mx-auto flex justify-between items-center'>
                 {/* Logo */}
                 <div className='flex items-center'>
                     <Image
@@ -51,15 +52,16 @@ const Navbar = () => {
                     {user ?
 
                         (
-                            <div className='flex gap-2 items-center'>
+                            <div className='flex gap-2 items-center border shadow px-3 py-1 rounded-2xl bg-blue-50'>
                                 <Link href="/profile">
                                     <Avatar size="sm">
                                         <AvatarImage src={user?.image} referrerPolicy='no-referrer' />
                                         <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>
                                     </Avatar>
                                 </Link>
-
-                                <Button onClick={handleSingOut} size="sm" variant='outline' className='hover:bg-red-500 hover:text-white rounded-md'>Logout</Button>
+                                <ProfileDropdown user={user}></ProfileDropdown>
+                                {/* <h1>{user?.name}</h1> */}
+                                {/* <Button onClick={handleSingOut} size="sm" variant='outline' className='hover:bg-red-500 hover:text-white rounded-md'>Logout</Button> */}
                             </div>
                         ) : (
 
