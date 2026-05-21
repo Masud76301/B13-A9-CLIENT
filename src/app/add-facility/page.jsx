@@ -13,7 +13,7 @@ const AddFacilityPage = () => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(formData.entries());
-        console.log(facility);
+        
 
         const res = await fetch('http://localhost:8000/facility',{
                method: 'POST',

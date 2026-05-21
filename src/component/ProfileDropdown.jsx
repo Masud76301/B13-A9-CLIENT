@@ -18,7 +18,7 @@ export function ProfileDropdown({ user }) {
                         if (key === "logout") handleSingOut();
                     }}>
                     <Dropdown.Item id="new-file" textValue="New file">
-                       <Link href="/"> <Label>My Booking</Label></Link>
+                       <Link href="/my-booking"> <Label>My Booking</Label></Link>
                     </Dropdown.Item>
                     <Dropdown.Item id="copy-link" textValue="Copy link">
                         <Link href="/add-facility"><Label>Add Facility</Label></Link>

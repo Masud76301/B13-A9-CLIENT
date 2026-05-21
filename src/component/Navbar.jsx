@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const { data: session, error } = authClient.useSession();
     const user = session?.user;
-    console.log(user);
+   
     const handleSingOut = async () => {
         await authClient.signOut();
     }
@@ -36,7 +36,7 @@ const Navbar = () => {
                     {user ? (<div className='flex items-center font-semibold gap-6 '>
                         <Link href='/'>Home</Link>
                         <Link href='/all-facilities'>All Facilities</Link>
-                        <Link href='/'>My Booking</Link>
+                        <Link href='/my-booking'>My Booking</Link>
                         <Link href='/add-facility'>Add Facility</Link>
                         <Link href='/manage-facility'>Manage Facility</Link>
                     </div>) : (<div className='flex items-center font-semibold gap-6 '>
