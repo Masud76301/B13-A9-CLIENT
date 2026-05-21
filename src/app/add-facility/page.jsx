@@ -30,7 +30,7 @@ const AddFacilityPage = () => {
     return (
         <div className='container mx-auto'>
             <h1 className='text-4xl text-center font-bold mt-10 text-shadow-2xs'>ADD A NEW <span className='font-bold text-blue-800'>FACILITY</span> </h1>
-            <Card className='my-10 border w-3xl mx-auto bg-blue-50'>
+            <Card className='my-10 border w-3xl mx-auto bg-blue-50 rounded-md'>
                 <form onSubmit={onSubmit} className="p-10 space-y-8 w-2xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Facility Name */}
