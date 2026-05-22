@@ -20,9 +20,9 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="relative flex items-center  bg-white border border-slate-200 rounded-xl shadow-sm focus-within:ring-4 focus-within:ring-blue-600/10 focus-within:border-blue-600 transition-all overflow-hidden my-6 w-[48%] h-12">
+    <div className="md:relative flex  items-center  bg-white border border-slate-200 rounded-xl shadow-sm focus-within:ring-4 focus-within:ring-blue-600/10 focus-within:border-blue-600 transition-all overflow-hidden my-6 w-[90vw] md:w-[48%] h-12">
 
-      <div className="pl-5 text-slate-400">
+      <div className="pl-5 hidden lg:block text-slate-400">
        <CiSearch />
       </div>
 
@@ -36,11 +36,13 @@ const SearchBar = () => {
 
       <button
         onClick={handleSearch}
-        className="h-8 px-6 mr-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+        className="h-8  px-2 md:px-6   mr-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
 
       >
         Search
       </button>
+
+      
     </div>
   );
 };

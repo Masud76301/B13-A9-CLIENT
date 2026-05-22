@@ -23,7 +23,7 @@ const FacilitiesDetailsPage = async ({ params }) => {
     const facility = await res.json();
     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description,email } = facility;
     return (
-        <div className='container mx-auto grid grid-cols-2 gap-2 my-10 items-center'>
+        <div className='container  w-[90vw]  md:w-full mx-auto grid gird-cols-1 lg:grid-cols-2 gap-2 my-10 items-center'>
             {/* Facility Details */}
             <div>
                 <Image
@@ -31,17 +31,17 @@ const FacilitiesDetailsPage = async ({ params }) => {
                     alt={facilityName}
                     width={300}
                     height={200}
-                    className='w-full h-60 mb-6 rounded-md'
+                    className='w-[90vw] mx-auto lg:w-full h-60 mb-6 rounded-md'
                 />
                 
-                <div className='mb-5 flex flex-col'>
+                <div className='mb-5  w-[90vw] mx-auto lg:w-full flex flex-col'>
 
-                    <h1 className='text-3xl text-blue-800 font-bold '>{facilityName}</h1>
+                    <h1 className='text-2xl md:text-3xl text-blue-800 font-bold '>{facilityName}</h1>
                     <p className=''>{email}</p>
 
                 </div>
 
-                <div className='grid grid-cols-2 gap-4'>
+                <div className='w-[90vw] mx-auto lg:w-full grid grid-col-1 lg:grid-cols-2 gap-4'>
                     <Card className='col-span-1 bg-blue-100 rounded-md'>
                         <h1 className='text-xl font-semibold'>Location</h1>
                         <p>{location}</p>
@@ -63,12 +63,12 @@ const FacilitiesDetailsPage = async ({ params }) => {
                         <p>{capacity}</p>
                     </Card>
 
-                    <Card className='col-span-2 bg-blue-100 rounded-md'>
+                    <Card className=' lg:col-span-2 bg-blue-100 rounded-md'>
                         <h1 className='text-xl font-semibold'>Available Time Slot</h1>
                         <p>{timeSlot}</p>
                     </Card>
 
-                    <Card className='col-span-2 bg-blue-100 rounded-md'>
+                    <Card className='lg:col-span-2 bg-blue-100 rounded-md'>
                         <h1 className='text-xl font-semibold'>About This Facilities</h1>
                         <p>{description}</p>
                     </Card>

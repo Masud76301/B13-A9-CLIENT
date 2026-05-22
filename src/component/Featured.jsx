@@ -7,11 +7,11 @@ const Featured = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/featured`);
     const featuredData = await res.json();
     return (
-        <div className='container mx-auto my-10'>
-            <div className='flex justify-between'>
+        <div className='container w-[90vw] lg:w-full md:mx-auto my-10 '>
+            <div className='flex items-center md:justify-between'>
 
                 <h1 className='text-3xl font-bold mb-6'>Featured Facilities</h1>
-                <Link href='/all-facilities'><Button variant='outline' className="rounded-md">All Facilities</Button></Link>
+                <Link href='/all-facilities'><Button variant='outline' className="rounded-md w-[80%] md:w-full">All Facilities</Button></Link>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6'>
                 {

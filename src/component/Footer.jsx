@@ -8,13 +8,13 @@ import { PiPhone } from 'react-icons/pi';
 const Footer = () => {
     return (
         <div className='h-auto md:h-88 bg-blue-800 text-white'>
-            <div className='container mx-auto justify-items-center grid grid-cols-2 md:grid-cols-4 h-[80%] '>
+            <div className='container  lg:mx-auto justify-items-center grid grid-cols-2 md:grid-cols-4 md:h-[80%] '>
 
                 <div className='mt-15'>
                     <div className='flex items-center'>
 
-                        <Image src='/sportCoveLogo.png' alt="sportCove" width={100} height={100}></Image>
-                        <h1 className='text-3xl font-bold'>SportCove</h1>
+                        <Image src='/sportCoveLogo.png' alt="sportCove" width={100} height={100} className='md:relative right-7' ></Image>
+                        <h1 className=' hidden md:block md:relative right-10 bottom-1 text-3xl font-bold '>SportCove</h1>
                     </div>
                     <p className="text-sm lg:mx-auto mx-2 text-gray-200 leading-relaxed">
                         Book football turfs, badminton courts, swimming lanes, and tennis courts across the city.

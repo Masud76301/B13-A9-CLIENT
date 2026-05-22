@@ -19,7 +19,7 @@ const myBookingPage = async () => {
     const bookings = await res.json();
 
     return (
-        <div className='w-4xl mx-auto my-10'>
+        <div className='mx-2 w-[90vw] lg:w-4xl mx-auto my-10'>
             <div>
                 <h1 className='text-center text-3xl font-bold text-blue-700'>MY BOOKING</h1>
             </div>

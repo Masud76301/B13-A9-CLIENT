@@ -87,9 +87,9 @@ const LoginPage = () => {
                 </div>
             </Form>
              <div className="flex justify-center items-center mt-10 gap-3">
-                <Separator className="w-30 bg-blue-700"/>
+                <Separator className="w-[20%] md:w-30 bg-blue-700"/>
                     <div className="whitespace-nowrap">  or continue with </div>
-                <Separator className="w-30 bg-blue-700"/>
+                <Separator className="w-[20%] md:w-30 bg-blue-700"/>
             </div>
             {/* <h1 className="text-center my-3"> - or continue with - </h1> */}
             <GoogleLogin></GoogleLogin>

@@ -14,7 +14,7 @@ const Filter = () => {
         router.push(`/all-facilities?search=${query}&types=${value}`)
     }
     return (
-        <div className='w-[50%] flex justify-end '>
+        <div className='md:w-[50%] flex justify-end mb-4 md:mb-0'>
             {/* <select defaultValue="All" className=" bg-blue-50 border border-slate-200 rounded-xl shadow-sm focus-within:ring-4 focus-within:ring-blue-600/10 focus-within:border-blue-600 transition-all overflow-hidden my-6  font-bold text-center px-4 py-1 w-[40%] select select-neutral">
                 <option>Football</option>
                 <option>Swimming</option>

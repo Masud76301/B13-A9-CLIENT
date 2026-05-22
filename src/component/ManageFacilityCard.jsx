@@ -14,7 +14,7 @@ const ManageFacilityCard = async ({ facility }) => {
         <div className='container mx-auto '>
             <Card className="border rounded-sm">
               <div className='flex justify-between'>
-                 <div className='flex gap-2'>
+                 <div className='flex flex-col md:flex-row gap-2'>
                     <Image
                         src={imageUrl}
                         alt={facilityName}

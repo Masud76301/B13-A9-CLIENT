@@ -15,10 +15,10 @@ const Navbar = () => {
     }
     return (
 
-        <div className='bg-white shadow h-16 p-2 '>
-            <div className='container mx-auto flex justify-between items-center'>
+        <div className='bg-white shadow md:h-16 py-5 md:p-2'>
+            <div className='container mx-auto flex flex-col md:flex-row justify-between items-center '>
                 {/* Logo */}
-                <div className='flex items-center'>
+                <div className='flex justify-center items-center'>
                     <Image
                         src="/sportCoveLogo.png"
                         alt="SportCove"
@@ -32,13 +32,13 @@ const Navbar = () => {
 
 
                 {/* All link  */}
-                <div className=''>
+                <div className='mx-5'>
                     {user ? (<div className='flex items-center font-semibold gap-6 '>
                         <Link href='/'>Home</Link>
                         <Link href='/all-facilities'>All Facilities</Link>
-                        <Link href='/my-booking'>My Booking</Link>
-                        <Link href='/add-facility'>Add Facility</Link>
-                        <Link href='/manage-facility'>Manage Facility</Link>
+                        <Link href='/my-booking' className='hidden lg:block'>My Booking</Link>
+                        <Link href='/add-facility' className='hidden lg:block'>Add Facility</Link>
+                        <Link href='/manage-facility' className='hidden lg:block'>Manage Facility</Link>
                     </div>) : (<div className='flex items-center font-semibold gap-6 '>
                         <Link href='/'>Home</Link>
                         <Link href='/all-facilities'>All Facilities</Link>
@@ -48,12 +48,12 @@ const Navbar = () => {
 
 
                 {/* Login and Logout */}
-                <div className='space-x-2'>
+                <div className='space-x-2 mx-5 '>
                     {user ?
 
                         (
-                            <div className='flex gap-2 items-center border shadow px-3 py-1 rounded-2xl bg-blue-50'>
-                                <Link href="/profile">
+                            <div className='flex gap-2  items-center border md:shadow px-3 md:py-1 rounded-2xl md:bg-blue-50'>
+                                <Link href="/">
                                     <Avatar size="sm">
                                         <AvatarImage src={user?.image} referrerPolicy='no-referrer' />
                                         <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>

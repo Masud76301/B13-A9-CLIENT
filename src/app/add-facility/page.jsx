@@ -35,10 +35,10 @@ const AddFacilityPage = () => {
         redirect('/all-facilities')
     }
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-2 w-[90vw] md:w-full md:mx-auto'>
             <h1 className='text-4xl text-center font-bold mt-10 text-shadow-2xs'>ADD A NEW <span className='font-bold text-blue-800'>FACILITY</span> </h1>
-            <Card className='my-10 border w-3xl mx-auto bg-blue-50 rounded-md'>
-                <form onSubmit={onSubmit} className="p-10 space-y-8 w-2xl mx-auto">
+            <Card className='my-10 border  w-[96vw] lg:w-3xl md:mx-auto bg-blue-50 rounded-md'>
+                <form onSubmit={onSubmit} className="md:p-10 space-y-8 w-[98%] md:w-2xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Facility Name */}
                         <div className="md:col-span-2">

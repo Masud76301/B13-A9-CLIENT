@@ -33,23 +33,23 @@ const BookingCard =  ({ booking }) => {
     return (
         <div>
             <Card className="border rounded-sm hover:bg-blue-50">
-                <div className='flex justify-between items-center '>
+                <div className='flex  md:justify-between items-center '>
                   
-                    <div className='flex gap-2'>
+                    <div className='flex flex-col justify-center items-center md:flex-row gap-2'>
                         <Image
                             src={imageUrl}
                             alt={facilityName}
                             width={80}
                             height={80}
-                            className='rounded-sm'
+                            className='rounded-sm w-full md:w-20'
                         ></Image>
 
                         <div>
-                            <div className='flex gap-3 items-center'>
+                            <div className='flex flex-col md:flex-row gap-3 items-start md:items-center'>
                                 <h1 className='text-xl font-bold'>{facilityName}</h1>
-                                <Chip color="accent" className='h-5 rounded-xl bg-amber-400 text-black'>{status}</Chip>
+                                <Chip color="accent" className='h-5 mb-10 md:mb-0 rounded-xl bg-amber-400 text-black'>{status}</Chip>
                             </div>
-                            <div className='flex gap-4'>
+                            <div className='flex flex-col md:flex-row gap-4'>
                                 <p className='flex gap-2 items-center'><CgCalendarDates />{new Date(bookingDate).toLocaleDateString("es-US", {
                                     year: "numeric",
                                     month: "numeric",

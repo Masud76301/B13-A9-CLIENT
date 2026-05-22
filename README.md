@@ -12,10 +12,10 @@
 
 ## ✨ Features
 - Authentication : Secure login and registration with **Better Auth**
-- Add new facilities with image upload
-- Manage and update own facility listings
-- Delete facilities with confirmation 
-- CRUD Operation
+- CRUD Operation : Add new facilities with image upload
+- CRUD Operation : Manage and update own facility listings
+- CRUD Operation : Delete facilities with confirmation 
+- Implement search and filter using MongoDB operator
 - Implement JWT with cookies for backend  
 
 ## 🛠 NPM Packages Used

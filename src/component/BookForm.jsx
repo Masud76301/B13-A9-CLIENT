@@ -47,10 +47,10 @@ const BookForm = ({ facility }) => {
     }
 
     return (
-        <div>
-            <h1 className='text-center text-4xl font-bold text-blue-800'>Book Your Slot</h1>
-            <p className='text-center'>Choose your date and slot</p>
-            <form onSubmit={onSubmit} className="p-10 space-y-8 w-2xl mx-auto">
+        <div className="mt-10">
+            <h1 className='text-center text-3xl lg:text-4xl font-bold text-blue-800'>Book Your Slot</h1>
+            <p className='text-center mb-8'>Choose your date and slot</p>
+            <form onSubmit={onSubmit} className="md:p-10 space-y-8 w-[90vw] lg:w-2xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Facility Name */}
                     <div className="md:col-span-2">

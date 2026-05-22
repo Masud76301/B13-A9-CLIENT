@@ -118,9 +118,9 @@ const RegisterPage = () => {
             </Form>
 
             <div className="flex justify-center items-center mt-8 gap-3">
-                <Separator className="w-50 bg-blue-700"/>
+                <Separator className="w-[50%] md:w-50 bg-blue-700"/>
                     <div className="whitespace-nowrap"> or </div>
-                <Separator className="w-50 bg-blue-700"/>
+                <Separator className="w-[50%] md:w-50 bg-blue-700"/>
             </div>
             
             <p className="text-center">Already have an account? <Link className="text-blue-700 font-semibold" href="/login">Login</Link></p>
