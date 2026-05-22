@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 const BookForm = ({ facility }) => {
     const { _id,facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
 
-    const { data: session, error } = authClient.useSession();
+
+    const { data: session} = authClient.useSession();
     const user = session?.user;
 
     const onSubmit = async (e) => {
@@ -30,10 +31,12 @@ const BookForm = ({ facility }) => {
             status:'pending'
         }
         // console.log(BookingData);
-         const res = await fetch('http://localhost:8000/booking',{
+        const {data:tokenData} = await authClient.token()
+         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/booking`,{
                 method: 'POST',
                 headers: {
-                 'content-type':'application/json'
+                 'content-type':'application/json',
+                 authorization: `Bearer ${tokenData?.token}`
                 },
                 body: JSON.stringify(BookingData)
          });

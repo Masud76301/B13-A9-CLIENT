@@ -6,7 +6,9 @@ import { CloseButton } from 'react-toastify';
 import EditModal from './EditModal';
 import { DeleteAlert } from './DeleteAlert';
 
-const ManageFacilityCard = ({ facility }) => {
+
+const ManageFacilityCard = async ({ facility }) => {
+   
     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
     return (
         <div className='container mx-auto '>

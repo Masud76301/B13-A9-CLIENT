@@ -9,7 +9,7 @@ import { MdAccessTimeFilled, MdLocationOn } from "react-icons/md";
 const FacilityCard = ({ facility }) => {
     const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl,_id } = facility;
     return (
-        <div className="my-10">
+        <div className="">
             <Card className="border rounded-md bg-blue-100 relative h-full flex flex-col">
 
                 <Image

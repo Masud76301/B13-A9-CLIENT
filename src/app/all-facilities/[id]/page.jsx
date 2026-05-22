@@ -1,6 +1,8 @@
 
 import BookForm from '@/component/BookForm';
+import { auth } from '@/lib/auth';
 import { Select, Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 import { FaBangladeshiTakaSign, FaPersonSwimming } from 'react-icons/fa6';
@@ -10,9 +12,16 @@ import { RiFootballFill } from 'react-icons/ri';
 
 const FacilitiesDetailsPage = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(`http://localhost:8000/facility/${id}`);
+    const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${id}`,{
+        headers: {
+            authorization : `Bearer ${token}`
+        }
+    });
     const facility = await res.json();
-    const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
+    const { facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description,email } = facility;
     return (
         <div className='container mx-auto grid grid-cols-2 gap-2 my-10 items-center'>
             {/* Facility Details */}
@@ -23,11 +32,12 @@ const FacilitiesDetailsPage = async ({ params }) => {
                     width={300}
                     height={200}
                     className='w-full h-60 mb-6 rounded-md'
-                >
-                </Image>
-                <div className='mb-5 flex items-center justify-between'>
+                />
+                
+                <div className='mb-5 flex flex-col'>
 
                     <h1 className='text-3xl text-blue-800 font-bold '>{facilityName}</h1>
+                    <p className=''>{email}</p>
 
                 </div>
 

@@ -1,8 +1,10 @@
 import ManageFacilityCard from '@/component/ManageFacilityCard';
+import { authClient } from '@/lib/auth-client';
 import React from 'react';
 
 const manageFacilitiesPage = async () => {
-    const res = await fetch('http://localhost:8000/facility');
+ 
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility`);
     const facilities = await res.json();
 
     return (

@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import { Button, Card, Chip } from '@heroui/react';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
@@ -10,12 +11,14 @@ import { toast } from 'react-toastify';
 
 const BookingCard =  ({ booking }) => {
     const { _id,imageUrl, facilityName, bookingDate, timeSlot, price, status } =  booking;
-    
+  
     const handleDelete = async () => {
-        const res = await fetch(`http://localhost:8000/booking/${_id}`, {
+          const {data:tokenData} =await authClient.token();
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/booking/${_id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
+                 authorization: `Bearer ${tokenData?.token}`
 
             }
         });

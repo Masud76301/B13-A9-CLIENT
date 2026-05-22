@@ -1,30 +1,39 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Select, Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField } from '@heroui/react';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import { FaRegEdit } from 'react-icons/fa';
 import { FaPersonSwimming } from 'react-icons/fa6';
 import { GiTennisRacket } from 'react-icons/gi';
 import { MdSportsTennis } from 'react-icons/md';
 import { RiFootballFill } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 
 const EditModal = ({facility}) => {
     const {_id, facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
+
+    
     const onSubmit = async (e) =>{
            e.preventDefault()
            const formData = new FormData(e.currentTarget);
            const facility = Object.fromEntries(formData.entries());
-           console.log(facility);
-   
-           const res = await fetch(`http://localhost:8000/facility/${_id}`,{
+            const {data:tokenData} = await authClient.token();
+           const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${_id}`,{
                   method: 'PATCH',
                   headers: {
-                   'content-type':'application/json'
+                   'content-type':'application/json',
+                   authorization: `Bearer ${tokenData?.token}`
                   },
                   body: JSON.stringify(facility)
            });
    
            const data= await res.json();
-           toast.success("Facility are update successfully!");
+           if(data){
+             toast.success("Facility are update successfully!");
+           }
+           redirect('/all-facilities')
+          
        }
 
      

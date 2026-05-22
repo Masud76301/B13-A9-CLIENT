@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Select, Button, FieldError, Input, Label, ListBox, TextArea, TextField, Card } from '@heroui/react';
 import { redirect } from 'next/navigation';
 import React from 'react';
@@ -9,22 +10,28 @@ import { RiFootballFill } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
 const AddFacilityPage = () => {
-    const onSubmit = async (e) =>{
+    const { data: session} = authClient.useSession();
+    const user = session?.user;
+   
+    const onSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(formData.entries());
-        
-
-        const res = await fetch('http://localhost:8000/facility',{
-               method: 'POST',
-               headers: {
-                'content-type':'application/json'
-               },
-               body: JSON.stringify(facility)
+        const { data: tokenData } = await authClient.token();
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
+            },
+            body: JSON.stringify(facility)
         });
 
-        const data= await res.json();
-        toast.success("Facility are added successfully!");
+        const data = await res.json();
+        if (data) {
+
+            toast.success("Facility are added successfully!");
+        }
         redirect('/all-facilities')
     }
     return (
@@ -65,13 +72,13 @@ const AddFacilityPage = () => {
                                 <Select.Popover>
                                     <ListBox>
 
-                                         <ListBox.Item id="Football" textValue="Football">
-                                         <RiFootballFill />Football
+                                        <ListBox.Item id="Football" textValue="Football">
+                                            <RiFootballFill />Football
                                             <ListBox.ItemIndicator />
                                         </ListBox.Item>
 
                                         <ListBox.Item id="Tennis" textValue="Tennis">
-                                            <MdSportsTennis/>Tennis
+                                            <MdSportsTennis />Tennis
                                             <ListBox.ItemIndicator />
                                         </ListBox.Item>
                                         <ListBox.Item id="Badminton" textValue="Badminton">
@@ -127,6 +134,19 @@ const AddFacilityPage = () => {
                                     placeholder="https://example.com/bali-paradise.jpg"
                                     className="rounded-2xl"
                                 />
+                                <FieldError />
+                            </TextField>
+                        </div>
+                        
+                        {/* Owner Email */}
+                        <div className='md:col-span-2'>
+                            <TextField
+                                isRequired
+                                name="email"
+                                type="email"
+                            >
+                                <Label>Email</Label>
+                                <Input value={user?.email} readOnly/>
                                 <FieldError />
                             </TextField>
                         </div>
