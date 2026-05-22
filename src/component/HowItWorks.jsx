@@ -3,7 +3,7 @@ import React from 'react';
 
 const HowItWorks = () => {
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto my-10' id="howItWorks">
             <h1 className='text-3xl font-bold mb-6'>How it Works</h1>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                 <Card className='space-y-1 flex flex-col justify-center items-center border bg-blue-50 rounded-lg'>

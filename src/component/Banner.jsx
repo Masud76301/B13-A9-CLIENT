@@ -13,7 +13,7 @@ const Banner = () => {
                 <p className='text-blue-100 text-[18px]'>Football turfs, badminton courts, swimming lanes, and <br></br> tennis courts — find, compare, and reserve in a few taps.</p>
                 <div className='space-x-2'>
                     <Link href="/all-facilities"><Button  className='rounded-sm text-white bg-blue-800' >Explore Facilities</Button></Link>
-                    <Link href="/all-facilities"><Button variant='outline' className='rounded-sm text-blue-100' >How it works</Button></Link>
+                    <Link href="#howItWorks"><Button variant='outline' className='rounded-sm text-blue-100' >How it works</Button></Link>
 
                 </div>
 

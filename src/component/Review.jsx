@@ -4,7 +4,7 @@ import React from 'react';
 const Review = () => {
     return (
         <div className='container mx-auto my-10'>
-            <h1 className='text-3xl font-bold mb-6'>What players say</h1>
+            <h1 className='text-3xl font-bold mb-6'>User Reviews</h1>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                 <Card className=' flex flex-col border bg-blue-50 rounded-lg'>
                     <div className='text-yellow-600' >★★★★★</div>
