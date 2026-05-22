@@ -1,6 +1,7 @@
 import Banner from "@/component/Banner";
 import Featured from "@/component/Featured";
 import HowItWorks from "@/component/HowItWorks";
+import Review from "@/component/Review";
 import { Button } from "@heroui/react";
 import { BiFootball } from "react-icons/bi";
 
@@ -11,6 +12,7 @@ export default function Home() {
         <Banner></Banner>
         <Featured></Featured>
         <HowItWorks></HowItWorks>
+        <Review></Review>
     </div>
   );
 }

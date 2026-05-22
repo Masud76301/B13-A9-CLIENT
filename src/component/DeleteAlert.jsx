@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import {AlertDialog, Button} from "@heroui/react";
 import { redirect } from "next/navigation";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export function DeleteAlert({facility}) {
     const {_id,facilityName}= facility;
@@ -20,6 +21,9 @@ export function DeleteAlert({facility}) {
         });
 
         const data = await res.json();
+        if(data){
+          toast.success("Your facility are deleted successful")
+        }
         redirect('/all-facilities');
 
     }
