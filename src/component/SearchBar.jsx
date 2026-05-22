@@ -16,7 +16,7 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     const query =text.trim();
-    router.push(`/all-facilities?search=${query}`);
+    router.push(`/all-facilities?search=${query}&types=${params.get("types") || ""}`);
   }
 
   return (
