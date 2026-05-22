@@ -2,7 +2,7 @@
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Chip } from '@heroui/react';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import React from 'react';
 import { CgCalendarDates } from 'react-icons/cg';
 import { FaRegTrashAlt } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import { IoMdPricetag, IoMdTime } from 'react-icons/io';
 import { toast } from 'react-toastify';
 
 const BookingCard =  ({ booking }) => {
+     const router = useRouter();
     const { _id,imageUrl, facilityName, bookingDate, timeSlot, price, status } =  booking;
   
     const handleDelete = async () => {
@@ -27,7 +28,7 @@ const BookingCard =  ({ booking }) => {
         if(data){
             toast.success("Cancel Successful");
         }
-        redirect('/my-booking');
+          router.push("/my-booking"); 
 
     }
     return (

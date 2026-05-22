@@ -7,7 +7,7 @@
 
 ## 🌐 Live URL
 
-> **Client:**  
+> **Client:** https://sportcoveclient.vercel.app/
 > **Server:** https://sportcove.vercel.app/ 
 
 ## ✨ Features

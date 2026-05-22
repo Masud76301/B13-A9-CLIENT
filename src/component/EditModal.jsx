@@ -49,9 +49,9 @@ const EditModal = ({facility}) => {
                             <Modal.Heading className='text-2xl text-blue-700 text-center'>Update Your Facility</Modal.Heading>
                             
                         </Modal.Header>
-                        <Modal.Body className="p-6">
+                        <Modal.Body className=" md:p-6">
                             <Surface variant="default">
-                                <form onSubmit={onSubmit} className="p-10 space-y-8 w-xl mx-auto">
+                                <form onSubmit={onSubmit} className="lg:p-10 space-y-8 lg:w-xl mx-auto">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         {/* Facility Name */}
                                         <div className="md:col-span-2">
