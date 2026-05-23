@@ -1,35 +1,41 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import {AlertDialog, Button} from "@heroui/react";
+import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-export function DeleteAlert({facility}) {
-    const {_id,facilityName}= facility;
-     
-    const handleDelete = async()=>{
-      const {data:tokenData} = await authClient.token();
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${_id}`,{
-            method:"DELETE",
-            headers:{
-                "content-type":"application/json",
-                authorization: `Bearer ${tokenData?.token}`
-                 
-            }
-        });
+export function DeleteAlert({ facility }) {
+  const { _id, facilityName, email } = facility;
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
-        const data = await res.json();
-        if(data){
-          toast.success("Your facility are deleted successful")
+  const handleDelete = async () => {
+    if (email === user?.email) {
+      const { data: tokenData } = await authClient.token();
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${_id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${tokenData?.token}`
+
         }
-        redirect('/all-facilities');
+      });
 
+      const data = await res.json();
+      if (data) {
+        toast.success("Your facility are deleted successful")
+      }
+      redirect('/all-facilities');
+
+    } else {
+      toast.error("Only Owner can delete this facility!");
     }
+  }
   return (
     <AlertDialog>
-      <Button variant="Ghost" className="text-red-500"><FaRegTrashAlt/>Delete</Button>
+      <Button variant="Ghost" className="text-red-500"><FaRegTrashAlt />Delete</Button>
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
           <AlertDialog.Dialog className="sm:max-w-[400px]">

@@ -37,7 +37,7 @@ const FacilitiesDetailsPage = async ({ params }) => {
                 <div className='mb-5  w-[90vw] mx-auto lg:w-full flex flex-col'>
 
                     <h1 className='text-2xl md:text-3xl text-blue-800 font-bold '>{facilityName}</h1>
-                    <p className=''>{email}</p>
+                    <p><span className="font-semibold">Owner mail :</span>  {email}</p>
 
                 </div>
 

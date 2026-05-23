@@ -10,33 +10,39 @@ import { MdSportsTennis } from 'react-icons/md';
 import { RiFootballFill } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
-const EditModal = ({facility}) => {
-    const {_id, facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description } = facility;
+const EditModal = ({ facility }) => {
+    const { _id, facilityName, location, facilityType, price, capacity, timeSlot, imageUrl, description, email } = facility;
 
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget);
+        const facility = Object.fromEntries(formData.entries());
+        if(user?.email===email){
+
+            const { data: tokenData } = await authClient.token();
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${tokenData?.token}`
+                },
+                body: JSON.stringify(facility)
+            });
     
-    const onSubmit = async (e) =>{
-           e.preventDefault()
-           const formData = new FormData(e.currentTarget);
-           const facility = Object.fromEntries(formData.entries());
-            const {data:tokenData} = await authClient.token();
-           const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility/${_id}`,{
-                  method: 'PATCH',
-                  headers: {
-                   'content-type':'application/json',
-                   authorization: `Bearer ${tokenData?.token}`
-                  },
-                  body: JSON.stringify(facility)
-           });
-   
-           const data= await res.json();
-           if(data){
-             toast.success("Facility are update successfully!");
-           }
-           redirect('/all-facilities')
-          
-       }
+            const data = await res.json();
+            if (data) {
+                toast.success("Facility are update successfully!");
+            }
+            redirect('/all-facilities')
+        } else{
+            toast.error("Only owner can updated this facility!")
+        }
 
-     
+    }
+
+
     return (
         <Modal>
             <Button variant='Ghost' className="text-blue-500"><FaRegEdit />Edit</Button>
@@ -47,7 +53,7 @@ const EditModal = ({facility}) => {
                         <Modal.Header>
 
                             <Modal.Heading className='text-2xl text-blue-700 text-center'>Update Your Facility</Modal.Heading>
-                            
+
                         </Modal.Header>
                         <Modal.Body className=" md:p-6">
                             <Surface variant="default">
@@ -167,10 +173,10 @@ const EditModal = ({facility}) => {
 
                                     {/* Buttons */}
                                     <Modal.Footer>
-                                        <Button className="rounded-sm"  slot="close" variant="secondary">
+                                        <Button className="rounded-sm" slot="close" variant="secondary">
                                             Cancel
                                         </Button>
-                                        <Button className="rounded-sm"  type='submit' slot="close">Update</Button>
+                                        <Button className="rounded-sm" type='submit' slot="close">Update</Button>
                                     </Modal.Footer>
 
                                 </form>

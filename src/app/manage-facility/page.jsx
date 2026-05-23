@@ -7,8 +7,8 @@ const manageFacilitiesPage = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/facility`, {
         cache: "no-store"
     });
-    console.log("SERVER:", process.env.NEXT_PUBLIC_SERVER_URI);
-    console.log("RESPONSE STATUS:", res.status);
+    // console.log("SERVER:", process.env.NEXT_PUBLIC_SERVER_URI);
+    // console.log("RESPONSE STATUS:", res.status);
     const facilities = await res.json();
 
     return (
